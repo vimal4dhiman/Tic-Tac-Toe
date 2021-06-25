@@ -43,14 +43,16 @@ const init = function() {
     btn8.innerHTML = '';
     btn9.innerHTML = '';
 }
-
 init();
+
 const dataSets = function(btn, icon) {
     btn.innerHTML = '';
     btn.innerHTML = icon;
     if (checking(table, icon)) {
-        console.log(`Victory`)
-        init();
+        setTimeout(() => {
+            alert(`Victory!! Player ${icon} won`)
+            init();
+        }, 500);
     }
 }
 const oddEvenCheck = count => count % 2 == 0 ? 'X' : 'O';
