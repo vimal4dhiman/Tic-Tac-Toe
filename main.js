@@ -25,10 +25,93 @@ const checking = (table, icon) => {
         (table[2] === icon && table[5] === icon && table[8] === icon) ||
         (table[0] === icon && table[4] === icon && table[8] === icon) ||
         (table[2] === icon && table[4] === icon && table[6] === icon)) {
-        // console.log(`Won the match`)
         return true;
     }
 }
+
+const dataSets = function(btn, icon) {
+    btn.innerHTML = '';
+    btn.innerHTML = icon;
+    if (checking(table, icon)) {
+        setTimeout(() => {
+            alert(`Victory!! Player ${icon} won`)
+            init();
+        }, 500);
+    }
+}
+
+const table_1_Check = function() {
+    const icon = oddEvenCheck(count);
+    dataSets(btn1, icon);
+    table[0] = icon;
+    count++;
+    console.log(count)
+    btn1.removeEventListener('click', table_1_Check, true);
+}
+
+const table_2_Check = function() {
+    const icon = oddEvenCheck(count);
+    table[1] = icon;
+    count++;
+    dataSets(btn2, icon);
+    btn2.removeEventListener('click', table_2_Check, true)
+};
+
+const table_3_Check = function() {
+    const icon = oddEvenCheck(count);
+    count++;
+    table[2] = icon;
+    dataSets(btn3, icon);
+    btn3.removeEventListener('click', table_3_Check, true);
+};
+
+const table_4_Check = function() {
+    const icon = oddEvenCheck(count);
+    count++;
+    table[3] = icon;
+    dataSets(btn4, icon);
+    btn4.removeEventListener('click', table_4_Check, true);
+};
+
+const table_5_Check = function() {
+    const icon = oddEvenCheck(count);
+    count++;
+    table[4] = icon;
+    dataSets(btn5, icon);
+    btn5.removeEventListener('click', table_5_Check, true);
+};
+
+const table_6_Check = function() {
+    const icon = oddEvenCheck(count);
+    count++;
+    table[5] = icon;
+    dataSets(btn6, icon);
+    btn6.removeEventListener('click', table_6_Check, true);
+};
+
+const table_7_Check = function() {
+    const icon = oddEvenCheck(count);
+    count++;
+    table[6] = icon;
+    dataSets(btn7, icon);
+    btn7.removeEventListener('click', table_7_Check, true);
+};
+
+const table_8_Check = function() {
+    const icon = oddEvenCheck(count);
+    count++;
+    table[7] = icon;
+    dataSets(btn8, icon);
+    btn8.removeEventListener('click', table_8_Check, true);
+};
+
+const table_9_Check = function() {
+    const icon = oddEvenCheck(count);
+    count++;
+    table[8] = icon;
+    dataSets(btn9, icon);
+    btn9.removeEventListener('click', table_9_Check, true);
+};
 
 const init = function() {
     table = ['', '', '', '', '', '', '', '', '']
@@ -42,85 +125,35 @@ const init = function() {
     btn7.innerHTML = '';
     btn8.innerHTML = '';
     btn9.innerHTML = '';
+    btn1.addEventListener('click', table_1_Check, true);
+    btn2.addEventListener('click', table_2_Check, true);
+    btn3.addEventListener('click', table_3_Check, true);
+    btn4.addEventListener('click', table_4_Check, true);
+    btn5.addEventListener('click', table_5_Check, true);
+    btn6.addEventListener('click', table_6_Check, true);
+    btn7.addEventListener('click', table_7_Check, true);
+    btn8.addEventListener('click', table_8_Check, true);
+    btn9.addEventListener('click', table_9_Check, true);
 }
-init();
 
-const dataSets = function(btn, icon) {
-    btn.innerHTML = '';
-    btn.innerHTML = icon;
-    if (checking(table, icon)) {
-        setTimeout(() => {
-            alert(`Victory!! Player ${icon} won`)
-            init();
-        }, 500);
-    }
-}
 const oddEvenCheck = count => count % 2 == 0 ? 'X' : 'O';
 
-reset.addEventListener('click', init)
+reset.addEventListener('click', init);
 
-btn1.addEventListener('click', function() {
-    const icon = oddEvenCheck(count);
-    table[0] = icon;
-    dataSets(btn1, icon);
-    // table[0] !== '' ? count++ : count = count;
-    count++;
-    console.log(count)
-}, table[0] !== '' ? { once: true } : { once: false })
+btn1.addEventListener('click', table_1_Check, true);
 
+btn2.addEventListener('click', table_2_Check, true);
 
-btn2.addEventListener('click', function() {
-    const icon = oddEvenCheck(count);
-    table[1] = icon;
-    count++;
-    dataSets(btn2, icon);
-}, table[1] !== '' ? { once: true } : { once: false })
+btn3.addEventListener('click', table_3_Check, true);
 
-btn3.addEventListener('click', function() {
-    const icon = oddEvenCheck(count);
-    count++;
-    table[2] = icon;
-    dataSets(btn3, icon);
-}, table[2] !== '' ? { once: true } : { once: false })
+btn4.addEventListener('click', table_4_Check, true);
 
-btn4.addEventListener('click', function() {
-    const icon = oddEvenCheck(count);
-    count++;
-    table[3] = icon;
-    dataSets(btn4, icon);
-}, table[3] !== '' ? { once: true } : { once: false })
+btn5.addEventListener('click', table_5_Check, true);
 
-btn5.addEventListener('click', function() {
-    const icon = oddEvenCheck(count);
-    count++;
-    table[4] = icon;
-    dataSets(btn5, icon);
-}, table[4] !== '' ? { once: true } : { once: false })
+btn6.addEventListener('click', table_6_Check, true);
 
-btn6.addEventListener('click', function() {
-    const icon = oddEvenCheck(count);
-    count++;
-    table[5] = icon;
-    dataSets(btn6, icon);
-}, table[5] !== '' ? { once: true } : { once: false })
+btn7.addEventListener('click', table_7_Check, true);
 
-btn7.addEventListener('click', function() {
-    const icon = oddEvenCheck(count);
-    count++;
-    table[6] = icon;
-    dataSets(btn7, icon);
-}, table[6] !== '' ? { once: true } : { once: false })
+btn8.addEventListener('click', table_8_Check, true);
 
-btn8.addEventListener('click', function() {
-    const icon = oddEvenCheck(count);
-    count++;
-    table[7] = icon;
-    dataSets(btn8, icon);
-}, table[7] !== '' ? { once: true } : { once: false })
-
-btn9.addEventListener('click', function() {
-    const icon = oddEvenCheck(count);
-    count++;
-    table[8] = icon;
-    dataSets(btn9, icon);
-}, table[8] !== '' ? { once: true } : { once: false })
+btn9.addEventListener('click', table_9_Check, true);
