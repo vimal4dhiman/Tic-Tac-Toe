@@ -9,11 +9,8 @@ const btn8 = document.querySelector('.btn-8');
 const btn9 = document.querySelector('.btn-9');
 const reset = document.querySelector('.reset');
 
-let count = 0;
 let table = ['', '', '', '', '', '', '', '', ''];
-
-const rand = Math.trunc(Math.random() * 9 + 1)
-console.log(rand);
+let count = 0;
 
 // Functions
 const checking = (table, icon) => {
