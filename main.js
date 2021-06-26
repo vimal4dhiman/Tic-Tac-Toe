@@ -11,6 +11,7 @@ const reset = document.querySelector('.reset');
 
 let table = ['', '', '', '', '', '', '', '', ''];
 let count = 0;
+let draw = 0;
 
 // Functions
 const checking = (table, icon) => {
@@ -23,6 +24,8 @@ const checking = (table, icon) => {
         (table[0] === icon && table[4] === icon && table[8] === icon) ||
         (table[2] === icon && table[4] === icon && table[6] === icon)) {
         return true;
+    } else {
+        draw++;
     }
 }
 
@@ -55,6 +58,12 @@ const dataSets = function(btn, icon) {
     if (checking(table, icon)) {
         setTimeout(() => {
             alert(`Victory!! Player ${icon} won`)
+            init();
+        }, 500);
+    }
+    if (draw === 9 && !checking(table, icon)) {
+        setTimeout(() => {
+            alert(`Draw!! nobody wins.`)
             init();
         }, 500);
     }
