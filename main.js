@@ -143,7 +143,7 @@ const table_9_Check = function() {
     btn9.removeEventListener('click', table_9_Check, true);
 };
 
-//Event listeners
+//Event listeners with already defined functions above
 reset.addEventListener('click', init);
 
 btn1.addEventListener('click', table_1_Check, true);
